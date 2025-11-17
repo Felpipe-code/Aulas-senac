@@ -1,0 +1,113 @@
+
+SELECT personagens.nome, desenhos.nome
+FROM personagens
+JOIN desenhos ON personagens.desenho_id = desenhos.id;
+
+
+SELECT albuns.titulo, artistas.nome
+FROM albuns
+JOIN artistas ON albuns.artista_id = artistas.id;
+
+
+SELECT livros.titulo, autores.nacionalidade
+FROM livros
+JOIN autores ON livros.autor_id = autores.id;
+
+
+SELECT personagens.nome, desenhos.nome
+FROM personagens
+LEFT JOIN desenhos ON personagens.desenho_id = desenhos.id;
+
+
+SELECT desenhos.nome, personagens.nome
+FROM desenhos
+LEFT JOIN personagens ON personagens.desenho_id = desenhos.id;
+
+
+SELECT albuns.titulo, artistas.nome
+FROM albuns
+LEFT JOIN artistas ON albuns.artista_id = artistas.id;
+
+
+SELECT artistas.nome, albuns.titulo
+FROM artistas
+LEFT JOIN albuns ON albuns.artista_id = artistas.id;
+
+
+SELECT livros.titulo, autores.nome
+FROM livros
+LEFT JOIN autores ON livros.autor_id = autores.id;
+
+
+SELECT autores.nome, livros.titulo
+FROM autores
+LEFT JOIN livros ON livros.autor_id = autores.id;
+
+
+SELECT personagens.nome, desenhos.nome
+FROM personagens
+JOIN desenhos ON personagens.desenho_id = desenhos.id
+WHERE personagens.idade > 18;
+
+
+SELECT albuns.titulo, artistas.nome
+FROM albuns
+JOIN artistas ON albuns.artista_id = artistas.id
+WHERE albuns.ano_lancamento < 2000;
+
+
+SELECT livros.titulo
+FROM livros
+JOIN autores ON livros.autor_id = autores.id
+WHERE autores.nacionalidade = 'Brasileiro';
+
+
+SELECT personagens.nome, desenhos.nome
+FROM personagens
+JOIN desenhos ON personagens.desenho_id = desenhos.id
+ORDER BY desenhos.nome ASC;
+
+
+SELECT albuns.titulo, artistas.nome
+FROM albuns
+JOIN artistas ON albuns.artista_id = artistas.id
+ORDER BY albuns.ano_lancamento DESC;
+
+
+SELECT livros.titulo, autores.nome
+FROM livros
+JOIN autores ON livros.autor_id = autores.id
+ORDER BY livros.titulo ASC;
+
+
+SELECT desenhos.nome, COUNT(personagens.id) AS total_personagens
+FROM desenhos
+LEFT JOIN personagens ON personagens.desenho_id = desenhos.id
+GROUP BY desenhos.nome;
+
+
+SELECT desenhos.nome, AVG(personagens.idade) AS idade_media
+FROM desenhos
+JOIN personagens ON personagens.desenho_id = desenhos.id
+GROUP BY desenhos.nome;
+
+
+SELECT artistas.nome
+FROM artistas
+JOIN albuns ON albuns.artista_id = artistas.id
+GROUP BY artistas.nome
+HAVING COUNT(albuns.id) > 3;
+
+
+SELECT autores.nome
+FROM autores
+JOIN livros ON livros.autor_id = autores.id
+GROUP BY autores.nome
+HAVING COUNT(DISTINCT livros.genero) > 1;
+
+
+SELECT desenhos.nome
+FROM desenhos
+JOIN personagens ON personagens.desenho_id = desenhos.id
+GROUP BY desenhos.nome
+HAVING AVG(personagens.idade) > 30;

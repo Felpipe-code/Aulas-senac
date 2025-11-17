@@ -1,0 +1,70 @@
+CREATE DATABASE ecommerce CHARACTER SET utf8mb4 COLLATE
+utf8mb4_unicode_ci; USE ecommerce;
+
+CREATE TABLE produtos ( id INT AUTO_INCREMENT PRIMARY KEY, nome
+VARCHAR(100), preco DECIMAL(10,2) );
+
+ALTER TABLE produtos ADD descricao VARCHAR(255) AFTER nome;
+
+INSERT INTO produtos (nome, descricao, preco) VALUES (‘Camiseta’,
+‘Camiseta de algodão, tamanho M’, 29.90);
+
+ALTER TABLE produtos DROP COLUMN descricao;
+
+CREATE TABLE clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nome
+VARCHAR(100) );
+
+ALTER TABLE clientes ADD email VARCHAR(150) FIRST; ALTER TABLE clientes
+ADD telefone INT AFTER nome; ALTER TABLE clientes MODIFY telefone INT
+UNSIGNED;
+
+INSERT INTO clientes (email, nome, telefone) VALUES
+(‘cliente1@email.com’, ‘João’, 987654321), (‘cliente2@email.com’,
+‘Maria’, 912345678);
+
+ALTER TABLE clientes RENAME TO usuarios;
+
+CREATE DATABASE livraria CHARACTER SET utf8mb4 COLLATE
+utf8mb4_unicode_ci; USE livraria;
+
+CREATE TABLE livros ( titulo VARCHAR(200), autor VARCHAR(150),
+ano_publicacao INT );
+
+ALTER TABLE livros ADD id INT AUTO_INCREMENT PRIMARY KEY FIRST; ALTER
+TABLE livros ADD estoque INT DEFAULT 0;
+
+INSERT INTO livros (titulo, autor, ano_publicacao, estoque) VALUES (‘Dom
+Casmurro’, ‘Machado de Assis’, 1899, 5), (‘O Hobbit’, ‘J. R. R.
+Tolkien’, 1937, 3), (‘1984’, ‘George Orwell’, 1949, 10);
+
+DROP TABLE IF EXISTS livros;
+
+CREATE DATABASE rh CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; USE
+rh;
+
+CREATE TABLE funcionarios ( nome VARCHAR(100), cargo VARCHAR(100),
+salario DECIMAL(10,2) );
+
+ALTER TABLE funcionarios ADD id INT AUTO_INCREMENT PRIMARY KEY FIRST;
+
+INSERT INTO funcionarios (nome, cargo, salario) VALUES (‘Carlos’,
+‘Analista’, 3500.00);
+
+ALTER TABLE funcionarios CHANGE salario remuneracao DECIMAL(10,2);
+
+CREATE DATABASE streaming CHARACTER SET utf8mb4 COLLATE
+utf8mb4_unicode_ci; USE streaming;
+
+CREATE TABLE series ( id INT AUTO_INCREMENT PRIMARY KEY, titulo
+VARCHAR(200) UNIQUE, genero VARCHAR(100), num_temporadas INT );
+
+INSERT INTO series (titulo, genero, num_temporadas) VALUES (‘Breaking
+Bad’, ‘Drama’, 5), (‘Stranger Things’, ‘Ficção Científica’, 4);
+
+CREATE DATABASE restaurante CHARACTER SET utf8mb4 COLLATE
+utf8mb4_unicode_ci; USE restaurante;
+
+CREATE TABLE pratos ( nome VARCHAR(100), descricao VARCHAR(255), preco
+DECIMAL(10,2) );
+
+ALTER TABLE pratos ADD id INT AUTO_INCREMENT PRIMARY KEY FIRST;

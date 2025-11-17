@@ -1,0 +1,100 @@
+CREATE DATABASE escola CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE escola;
+
+
+CREATE TABLE alunos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    data_nascimento DATE,
+    turma VARCHAR(10),
+    email VARCHAR(100)
+);
+
+
+INSERT INTO alunos (nome, data_nascimento, turma, email)
+VALUES ('João Silva', '2005-03-15', '8A', 'joao.silva@email.com');
+
+
+CREATE TABLE professores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    disciplina VARCHAR(100),
+    salario DECIMAL(5,2)
+);
+
+
+INSERT INTO professores (nome, disciplina, salario)
+VALUES 
+('Maria Souza', 'Matemática', 3500.50),
+('Carlos Lima', 'História', 4200.00);
+
+
+CREATE DATABASE biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE biblioteca;
+
+
+CREATE TABLE livros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200),
+    autor VARCHAR(150),
+    ano_publicacao INT,
+    disponivel BOOLEAN
+);
+
+
+INSERT INTO livros (titulo, autor, ano_publicacao, disponivel)
+VALUES
+('Dom Casmurro', 'Machado de Assis', 1899, TRUE),
+('O Alienista', 'Machado de Assis', 1882, FALSE),
+('1984', 'George Orwell', 1949, FALSE);
+
+
+CREATE DATABASE empresa CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE empresa;
+
+
+CREATE TABLE funcionarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    cargo VARCHAR(100),
+    salario DECIMAL(10,2),
+    data_admissao DATE
+);
+
+
+INSERT INTO funcionarios (nome, cargo, salario, data_admissao)
+VALUES ('Ana Pereira', 'Gerente', 7500.00, '2020-02-01');
+
+
+CREATE DATABASE cinema CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE cinema;
+
+
+CREATE TABLE filmes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200),
+    diretor VARCHAR(150),
+    genero VARCHAR(100),
+    duracao INT,
+    classificacao_etaria VARCHAR(20)
+);
+
+
+INSERT INTO filmes (titulo, diretor, genero, duracao, classificacao_etaria)
+VALUES
+('Interestelar', 'Christopher Nolan', 'Ficção Científica', 169, '12 anos'),
+('Vingadores: Ultimato', 'Anthony e Joe Russo', 'Ação', 181, '12 anos');
+
+
+CREATE DATABASE musica CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE musica;
+
+
+CREATE TABLE albuns (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(200),
+    artista VARCHAR(150),
+    ano_lancamento INT,
+    genero VARCHAR(100)
+);
+

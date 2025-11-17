@@ -1,0 +1,46 @@
+
+SELECT * FROM alunos;
+
+SELECT * FROM alunos WHERE nome = 'João Silva';
+
+
+SELECT * FROM alunos ORDER BY nome DESC;
+
+
+SELECT nome, email FROM alunos;
+
+
+SELECT * FROM alunos WHERE ano_ingresso <= 2016;
+
+
+SELECT * FROM alunos WHERE salario > 2000;
+
+
+SELECT * FROM alunos WHERE ano_ingresso BETWEEN 2010 AND 2020;
+
+
+SELECT * FROM alunos WHERE turma = '9A' AND ano_ingresso >= 2018;
+SELECT * FROM alunos WHERE turma = '8B' OR turma = '7C';
+
+
+SELECT * FROM alunos WHERE turma IN ('8A', '8B', '9A');
+
+
+SELECT nome FROM alunos WHERE turma = '8A'
+UNION
+SELECT nome FROM alunos WHERE turma = '8B';
+
+
+SELECT * FROM alunos WHERE nome LIKE 'Maria%';
+
+
+UPDATE alunos SET email = 'novoemail@teste.com' WHERE id = 4;
+
+
+SELECT DISTINCT turma FROM alunos;
+
+
+SELECT curso, COUNT(*) FROM alunos GROUP BY curso;
+
+
+SELECT AVG(salario), MAX(salario), MIN(salario) FROM professores;

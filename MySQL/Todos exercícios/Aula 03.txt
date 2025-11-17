@@ -1,0 +1,29 @@
+UPDATE alunos SET turma = ‘9A’ WHERE id = 3;
+
+DELETE FROM alunos WHERE turma = ‘8B’;
+
+DELETE FROM alunos;
+
+UPDATE alunos SET email = ‘joaosilva@novoemail.com’ WHERE nome = ‘João
+Silva’;
+
+DELETE FROM alunos WHERE id = 5;
+
+UPDATE alunos SET data_nascimento = DATE_SUB(data_nascimento, INTERVAL 1
+YEAR);
+
+DELETE FROM alunos WHERE email IS NULL OR email = ’’;
+
+CREATE TABLE professores ( id INT AUTO_INCREMENT PRIMARY KEY, nome
+VARCHAR(100), disciplina VARCHAR(100), salario DECIMAL(10,2) );
+
+INSERT INTO professores (nome, disciplina, salario) VALUES (‘Carlos
+Souza’, ‘Matemática’, 3500.00), (‘Fernanda Lima’, ‘Português’, 4200.00),
+(‘Marcos Reis’, ‘História’, 3900.00), (‘Juliana Castro’, ‘Geografia’,
+4100.00);
+
+UPDATE professores SET salario = salario * 1.10 ORDER BY id LIMIT 2;
+
+DELETE FROM professores WHERE id BETWEEN 1 AND 3;
+
+UPDATE professores SET disciplina = ‘Gerente’ WHERE salario > 5000;
