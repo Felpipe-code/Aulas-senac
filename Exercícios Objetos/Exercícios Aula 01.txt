@@ -1,0 +1,249 @@
+1
+
+class Pessoa {
+    String nome;
+    int idade;
+    double altura;
+
+    void apresentar() {
+        System.out.println("Olá, meu nome é " + nome + ", tenho " + idade + " anos e " + altura + "m de altura.");
+    }
+
+    public static void main(String[] args) {
+        Pessoa p = new Pessoa();
+        p.nome = "Ana";
+        p.idade = 25;
+        p.altura = 1.65;
+        p.apresentar();
+    }
+}
+
+2. Conta Bancária
+
+
+class ContaBancaria {
+    String numeroConta;
+    double saldo;
+    String titular;
+
+    void depositar(double valor) {
+        saldo += valor;
+    }
+
+    void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+
+    public static void main(String[] args) {
+        ContaBancaria c = new ContaBancaria();
+        c.titular = "Carlos";
+        c.depositar(500);
+        c.sacar(200);
+        System.out.println("Saldo de " + c.titular + ": R$ " + c.saldo);
+
+
+
+3. Carro
+
+
+class Carro {
+    String marca;
+    String modelo;
+    int ano;
+    boolean ligado;
+
+    void ligar() {
+        ligado = true;
+        System.out.println("O carro ligou.");
+    }
+
+    void desligar() {
+        ligado = false;
+        System.out.println("O carro desligou.");
+    }
+
+    public static void main(String[] args) {
+        Carro meuCarro = new Carro();
+        meuCarro.ligar();
+        meuCarro.desligar();
+    }
+}
+
+
+4. Retângulo
+
+
+class Retangulo {
+    double base;
+    double altura;
+
+    double calcularArea() {
+        return base * altura;
+    }
+
+    double calcularPerimetro() {
+        return 2 * (base + altura);
+    }
+
+    public static void main(String[] args) {
+        Retangulo r = new Retangulo();
+        r.base = 10;
+        r.altura = 5;
+        System.out.println("Área: " + r.calcularArea());
+        System.out.println("Perímetro: " + r.calcularPerimetro());
+    }
+}
+
+
+5. Círculo
+
+
+class Circulo {
+    double raio;
+
+    double calcularArea() {
+        return Math.PI * Math.pow(raio, 2);
+    }
+
+    double calcularCircunferencia() {
+        return 2 * Math.PI * raio;
+    }
+
+    public static void main(String[] args) {
+        Circulo c = new Circulo();
+        c.raio = 3;
+        System.out.println("Área: " + c.calcularArea());
+        System.out.println("Circunferência: " + c.calcularCircunferencia());
+    }
+}
+
+6. Funcionário
+
+
+
+class Funcionario {
+    String nome;
+    double salario;
+    String departamento;
+
+    void aumentarSalario(double percentual) {
+        salario += salario * (percentual / 100);
+    }
+
+    public static void main(String[] args) {
+        Funcionario f = new Funcionario();
+        f.nome = "Marcos";
+        f.salario = 3000;
+        f.aumentarSalario(10);
+        System.out.println("Novo salário de " + f.nome + ": R$ " + f.salario);
+    }
+}
+
+7. Livro
+
+
+class Livro {
+    String titulo;
+    String autor;
+    int anoPublicacao;
+    boolean disponivel = true;
+
+    void emprestar() {
+        if (disponivel) {
+            disponivel = false;
+            System.out.println("Livro emprestado.");
+        } else {
+            System.out.println("Livro indisponível.");
+        }
+    }
+
+    void devolver() {
+        disponivel = true;
+        System.out.println("Livro devolvido.");
+    }
+
+    public static void main(String[] args) {
+        Livro l = new Livro();
+        l.titulo = "Java OOP";
+        l.emprestar();
+        l.devolver();
+    }
+}
+
+8. Aluno (Média com Array)
+
+
+class Aluno {
+    String nome;
+    int matricula;
+    double[] notas;
+
+    double calcularMedia() {
+        double soma = 0;
+        for (double nota : notas) {
+            soma += nota;
+        }
+        return soma / notas.length;
+    }
+
+    public static void main(String[] args) {
+        Aluno a = new Aluno();
+        a.notas = new double[]{8.0, 7.5, 9.0};
+        System.out.println("Média: " + a.calcularMedia());
+    }
+}
+
+9. Produto
+
+class Produto {
+    String nome;
+    double preco;
+    int quantidadeEmEstoque;
+
+    void vender(int quantidade) {
+        if (quantidade <= quantidadeEmEstoque) {
+            quantidadeEmEstoque -= quantidade;
+        } else {
+            System.out.println("Estoque insuficiente.");
+        }
+    }
+
+    void reporEstoque(int quantidade) {
+        quantidadeEmEstoque += quantidade;
+    }
+
+    public static void main(String[] args) {
+        Produto p = new Produto();
+        p.quantidadeEmEstoque = 50;
+        p.vender(10);
+        p.reporEstoque(5);
+        System.out.println("Estoque atual: " + p.quantidadeEmEstoque);
+    }
+}
+
+10. Ponto (Distância entre dois pontos)
+
+class Ponto {
+    int x, y;
+
+    double calcularDistancia(Ponto outroPonto) {
+        return Math.sqrt(Math.pow(outroPonto.x - this.x, 2) + Math.pow(outroPonto.y - this.y, 2));
+    }
+
+    public static void main(String[] args) {
+        Ponto p1 = new Ponto();
+        p1.x = 0; p1.y = 0;
+        
+        Ponto p2 = new Ponto();
+        p2.x = 3; p2.y = 4;
+        
+        System.out.println("Distância: " + p1.calcularDistancia(p2));
+    }
+}
+
+
+

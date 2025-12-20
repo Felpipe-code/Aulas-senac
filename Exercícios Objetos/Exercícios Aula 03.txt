@@ -1,0 +1,135 @@
+       LISTA DE EXERCÍCIOS: INTERFACES
+
+1. CONTA BANCÁRIA (INTERFACE)
+------------------------------------------------------------
+interface Conta {
+    void depositar(double valor);
+    void sacar(double valor);
+}
+
+class ContaCorrente implements Conta {
+    private double saldo;
+
+    @Override
+    public void depositar(double valor) {
+        this.saldo += valor;
+    }
+
+    @Override
+    public void sacar(double valor) {
+        this.saldo -= valor;
+    }
+
+    public static void main(String[] args) {
+        ContaCorrente cc = new ContaCorrente();
+        cc.depositar(100);
+        cc.sacar(50);
+    }
+}
+
+2. ANIMAL (POLIMORFISMO)
+------------------------------------------------------------
+interface Animal {
+    void emitirSom();
+}
+
+class Cachorro implements Animal {
+    public void emitirSom() { System.out.println("Au Au!"); }
+}
+
+class Gato implements Animal {
+    public void emitirSom() { System.out.println("Miau!"); }
+}
+
+class Passaro implements Animal {
+    public void emitirSom() { System.out.println("Piu Piu!"); }
+}
+
+3. FIGURA GEOMÉTRICA
+------------------------------------------------------------
+interface FiguraGeometrica {
+    double calcularArea();
+    double calcularPerimetro();
+}
+
+class Retangulo implements FiguraGeometrica {
+    private double base, altura;
+    public Retangulo(double b, double h) { this.base = b; this.altura = h; }
+    public double calcularArea() { return base * altura; }
+    public double calcularPerimetro() { return 2 * (base + altura); }
+}
+
+4. PESSOA COM COMPARABLE (ORDENAÇÃO)
+------------------------------------------------------------
+class Pessoa implements Comparable<Pessoa> {
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    @Override
+    public int compareTo(Pessoa outra) {
+        return Integer.compare(this.idade, outra.idade);
+    }
+}
+
+5. FUNCIONÁRIO PAGÁVEL
+------------------------------------------------------------
+interface Pagavel {
+    double calcularPagamento();
+}
+
+class FuncionarioHorista implements Pagavel {
+    private double horas, valorHora;
+    public double calcularPagamento() { return horas * valorHora; }
+}
+
+class FuncionarioAssalariado implements Pagavel {
+    private double salarioMensal;
+    public double calcularPagamento() { return salarioMensal; }
+}
+
+6. DISPOSITIVOS ELETRÔNICOS
+------------------------------------------------------------
+interface DispositivoEletronico {
+    void ligar();
+    void desligar();
+    String obterStatus();
+}
+
+class Televisao implements DispositivoEletronico {
+    private boolean ligada;
+    public void ligar() { ligada = true; }
+    public void desligar() { ligada = false; }
+    public String obterStatus() { return ligada ? "Ligada" : "Desligada"; }
+}
+
+7. FORMAS DE PAGAMENTO
+------------------------------------------------------------
+interface FormaPagamento {
+    void efetuarPagamento(double valor);
+}
+
+class CartaoCredito implements FormaPagamento {
+    public void efetuarPagamento(double v) { System.out.println("Pago R$" + v + " no crédito."); }
+}
+
+class Boleto implements FormaPagamento {
+    public void efetuarPagamento(double v) { System.out.println("Gerado boleto de R$" + v); }
+}
+
+8. VEÍCULOS
+------------------------------------------------------------
+interface Veiculo {
+    void acelerar();
+    void frear();
+    void virar(String direcao);
+}
+
+class Carro implements Veiculo {
+    public void acelerar() { System.out.println("Carro acelerando..."); }
+    public void frear() { System.out.println("Carro freando..."); }
+    public
